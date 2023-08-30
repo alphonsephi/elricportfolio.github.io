@@ -1,0 +1,620 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About Me</a></li>
+                            <li class="active"><a href="practice.html">Case Study 1</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+                <div id="main">
+
+                    <!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <h1>Cyclistic</h1>
+                                <h4>casestudy 1</h4>
+                                <hr>
+                            </header>
+                            <section class="post">
+                                <header class="major">
+                                    <h3>The Task</h3>
+                                </header>
+                            <p>Using Excel, SQL, R, and visuals to provide data insight for the marketing team to convert casual customers into annual members. </p>
+                            <hr>
+                            <h2>Background</h2>
+                            <p>Cyclistic launched a successful bike-share offering in 2016. The bikes are convenience and easy to use. 
+                            The pricing plans include single-ride passes, full-day passes, and annual memberships. 
+                            Annual members are much more profitable than casual riders. 
+                            Moreno believes that maximizing the number of annual members will be key to future growth. 
+                            Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, 
+                            the marketing analyst team needs to better understand how annual members and casual riders differ, 
+                            why casual riders would buy a membership, and how digital media could affect their marketing tactics.</p>
+
+                            <h2>Preparation</h2>
+                            <p>We used Cyclistic’s historical trip data to analyze and identify trends. 
+                                All data are organized and located locally. All data has been reviewed for biases.
+                                 Data is licensed and was given proper access permissions.</p>
+                                 <header>
+                                    <h2>Ask</h2>
+                                    <p>Questions to guide the marketing analytic team:</p>
+                                </header>
+                                <ol>
+                                    <li>How do annual members and casual riders use Cyclistic bikes differently? </li>
+                                    <li>Why would casual riders buy Cyclistic annual memberships? </li>
+                                    <li>How can Cyclistic use digital media to influence casual riders to become members?</li>  
+                                    
+                                </ol>
+                                <header>
+                            <h2>Processes for Excel</h2>
+                                <p>I used Excel to check the data for nulls, 
+                                    misspelled words, mistyped numbers, 
+                                    extra spaces and characters, duplicates, 
+                                    inconsistent strings and date formats, labels. </p>
+                                 </header>
+                                 <ol>
+                                    <li>Downloaded and extract the data from the last 12 months of historical trips, organized them locally and separated XLS and CSV files folders. </li>
+                                    <li>Cleaned the data for the month of 07/2022, column by column using pivot tables in Excel 
+                                        Repeated for the next 11 months up to the most recent record.</li>
+                                    <li>Create new column “ride_length” to know the time each rider spent with their bike.</li>
+                                    <li>Create new column “day_of_week” to know the day each rider used the bike.</li>
+                                    <li>Calculated max, and the mean of of “ride_length”.</li>
+                                    <li>Calculated the mode of “day_of_week”.</li>
+                                    <li>Created a pivot table to visualize the average weekly “ride_length” between casual riders and member riders. </li>
+                                </ol>
+                            
+                            <h2>Processes for PosgresSQL</h2>
+                           <header> <h2>Processes for R</h2>
+                            <p>Using R we cleaned, organized, formated, calculated, aggregated and visualized our data </p></header>
+                            <ol>
+                                <li>Install and load the necessary packages for later cleaning and analysis. <br>
+                                    <span class=""><img src="rpics\1.jpg" alt="" /></span></li>
+                                <li>Find and set a working directory. <br>
+                                    <span class=""><img src="rpics\2.jpg" alt="" /></span></li>
+                                <li>Upload CSV files from the proper directory. <br>
+                                    <span class=""><img src="rpics\3.jpg" alt="" /></span></li>
+                                <li>Cross checking columns names for matching data. <br>
+                                    <span class=""><img src="rpics\4.jpg" alt="" /></span></li>
+                                <li>The output shows outdated col names for 2019, we then rename them so that it will be consistent with 2020. <br>
+                                    <span class=""><img src="rpics\5.jpg" alt="" /></span></li>
+                                <li>Inspect data frames and look for incongruences. <br>
+                                    <span class=""><img src="rpics\6.jpg" alt="" /></span></li>
+                                <li>‘ride_id’ and ‘rideable_type’ are shown as ‘num’ so we will change that to character using the mutate() function.<br>
+                                    <span class=""><img src="rpics\7.jpg" alt="" /></span></li>
+                                    <li>Now we combine all four data frames into one and we will call it ‘all_trips’. <br>
+                                        <span class=""><img src="rpics\8.jpg" alt="" /></span></li>
+                                        <li>We are then going to remove a few outdated columns to make all data congruent with q1_2020<br>
+                                            <span class=""><img src="rpics\9.jpg" alt="" style="width:100%;"/></span></li>
+                                            <li>Now we will inspect the new table using all the following functions <br>
+                                                <span class=""><img src="rpics\10.jpg" alt="" style="width:100%;"/></span></li>
+                                                <li>We noticed some inconsistencies in the member_casual column so we summarize the column using table() function.<br>
+                                                    <span class=""><img src="rpics\11.jpg" alt="" /></span></li>
+                                                    <li>We see that there are multiple labels for members and casual, we will consolidate this into two for future consistency. <br>
+                                                        <span class=""><img src="rpics\12.jpg" alt="" /></span></li>
+                                                        <li>After checking everything was in order, we now want to add columns that list the date, month, day, year and day_of_week of each ride, having these numbers give us more ways to aggregate our data and it also allows us to have deeper insight of our riders.<br>
+                                                            <span class=""><img src="rpics\13.jpg" alt="" style="width:100%;"/></span></li>
+                                                            <li>After creating the new columns and checking that they’re all in the correct place and format, we now wants to calculate the ride length of each rider. We use the difftime() function to find the difference between ‘all_trips$ended_at’ and ‘all_trips$started_at’.<br>
+                                                                <span class=""><img src="rpics\14.jpg" alt="" /></span></li>
+                                                                <li>We inspect the structure of our data once more for posterity<br>
+                                                                    <span class=""><img src="rpics\15.jpg" alt="" /></span></li>
+                                                                    <li>We want to run calculation using the data in ‘ride_length’, to do so we need to convert ‘ride_length’  to numberic. We check if ‘ride_length’ is a factor first then change it.<br>
+                                                                        <span class=""><img src="rpics\16.jpg" alt="" /></span></li>
+                                                                        <li>We also want to remove some data entries that has errors, namely the data that has negative ride length. To do so we must check the data first, then proceed to remove them. Since we are removing data from the data frame, we want to make a copy of said data for organization sake and assign it to ‘all_trip_v2’<br>
+                                                                            <span class=""><img src="rpics\17.jpg" alt="" style="width:100%;"/></span></li>
+                                                                            <li>Now that all our data are clean and proper, we can do some calculation on them using the following functions.<br>
+                                                                                <span class=""><img src="rpics\18.jpg" alt="" style="width:100%;"/></span> <br>
+                                                                            Or we can condense all the above functions using summary().
+                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" /></span></li>
+                                                                                <li>Now we want to compare the ride_length of casual riders and member riders, we sue the aggregate() function; we compare all_trips_v2$ride_length to all_trips_v2$member_casual adding FUN= to specify which summary statistic we would like to compare them with. <br>
+                                                                                    <span class=""><img src="rpics\19.jpg" alt="" style="width:100%;"/></span></li>
+                                                                                    <li>Now we compare casual riders and member riders using ‘ride_length’, ‘member_casual’, and ‘day_of_week’.<br>
+                                                                                        <span class=""><img src="rpics\20.jpg" alt="" style="width:100%;"/></span></li>
+                                                                                        <li>The output shows us that ‘day_of_week’ is out of order, we want to fix this by reassigning ‘day_of_week’ using the ordered() function.<br>
+                                                                                            <span class=""><img src="rpics\21.jpg" alt="" style="width:100%;"/></span></li>
+                                                                                            <li>Now we run the aggregate() function again to see that the days has been ordered correctly. Next we want to analyze ridership data by type and weekday. We first create a ‘weekday’ column, then we group it by user type, we summarize the ‘number_of_riders’, we then create an ‘average_duration’ by averaging ‘ride_length’ and arrange them by ‘member_casual’ and ‘weekday’<br>
+                                                                                                <span class=""><img src="rpics\22.jpg" alt="" style="width:100%;"/></span></li>
+                                                                                                <li>Using ggplot we will then visualize our findings, at the same time answering the question “What is the differences between casual and member riders, based on the number of rides?”<br>
+                                                                                                    <span class=""><img src="rpics\23.jpg" alt="" /></span></li>
+                                                                                                    <li>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”<br>
+                                                                                                        <span class=""><img src="rpics\24.jpg" alt="" /></span>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”</li>
+                                                                                                        <li>Having finished our analytics, now we save our work. We put the data we want into a new data frame ‘counts’ using the aggregate function, then we export a CSV file to the directory what we want. <br>
+                                                                                                            <span class=""><img src="rpics\25.jpg" alt="" style="width:100%;"/></span></li>
+                                
+                               
+                                    
+
+                            </ol>
+                            <hr>
+
+                            <h3>Left &amp; Right</h3>
+                                <p><span class="image right"><img src="rpics\1.jpg" alt="" /></span>Install and load the necessary packages for later cleaning and analysis.</p>
+                                <p><span class="image right"><img src="rpics\2.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+
+                                <hr />
+
+
+
+
+
+
+
+
+
+                            
+                            <!-- Text Reference -->
+                                <h2>Text</h2>
+                                <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+                                This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+                                This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.
+                                Finally, this is a <a href="#">link</a>.</p>
+                                <hr />
+                                <h2>Heading Level 2</h2>
+                                <h3>Heading Level 3</h3>
+                                <h4>Heading Level 4</h4>
+                                <h5>Heading Level 5</h5>
+                                <h6>Heading Level 6</h6>
+                                <hr />
+                                <header>
+                                    <h2>Heading with a Subtitle</h2>
+                                    <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+                                </header>
+                                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+                                <header>
+                                    <h3>Heading with a Subtitle</h3>
+                                    <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+                                </header>
+                                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+                                <header>
+                                    <h4>Heading with a Subtitle</h4>
+                                    <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+                                </header>
+                                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+
+                                <hr />
+
+                            <!-- Lists -->
+                                <h2>Lists</h2>
+                                <div class="row">
+                                    <div class="col-6 col-12-small">
+
+                                        <h3>Unordered</h3>
+                                        <ul>
+                                            <li>Dolor pulvinar etiam.</li>
+                                            <li>Sagittis lorem eleifend.</li>
+                                            <li>Felis feugiat dolore viverra.</li>
+                                            <li>Dolor pulvinar etiam.</li>
+                                        </ul>
+
+                                        <h3>Alternate</h3>
+                                        <ul class="alt">
+                                            <li>Dolor pulvinar etiam etiam.</li>
+                                            <li>Sagittis adipiscing eleifend.</li>
+                                            <li>Felis enim dolore viverra.</li>
+                                            <li>Dolor pulvinar etiam etiam.</li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-6 col-12-small">
+
+                                        <h3>Ordered</h3>
+                                        <ol>
+                                            <li>Dolor pulvinar etiam.</li>
+                                            <li>Etiam vel felis at viverra.</li>
+                                            <li>Felis enim feugiat magna.</li>
+                                            <li>Etiam vel felis nullam.</li>
+                                            <li>Felis enim et tempus.</li>
+                                        </ol>
+
+                                        <h3>Icons</h3>
+                                        <ul class="icons">
+                                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                            <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                            <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                        </ul>
+                                        <ul class="icons alt">
+                                            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                                            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                            <li><a href="#" class="icon brands alt fa-github"><span class="label">Github</span></a></li>
+                                            <li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <h3>Definition</h3>
+                                <dl>
+                                    <dt>Item 1</dt>
+                                    <dd>
+                                        <p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+                                    </dd>
+                                    <dt>Item 2</dt>
+                                    <dd>
+                                        <p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+                                    </dd>
+                                    <dt>Item 3</dt>
+                                    <dd>
+                                        <p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+                                    </dd>
+                                </dl>
+
+                                <h3>Actions</h3>
+                                <ul class="actions">
+                                    <li><a href="#" class="button primary">Primary</a></li>
+                                    <li><a href="#" class="button">Default</a></li>
+                                </ul>
+                                <ul class="actions small">
+                                    <li><a href="#" class="button primary small">Small</a></li>
+                                    <li><a href="#" class="button small">Small</a></li>
+                                </ul>
+                                <div class="row">
+                                    <div class="col-6 col-12-small">
+                                        <ul class="actions stacked">
+                                            <li><a href="#" class="button primary">Default</a></li>
+                                            <li><a href="#" class="button">Default</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6 col-12-small">
+                                        <ul class="actions stacked">
+                                            <li><a href="#" class="button primary small">Small</a></li>
+                                            <li><a href="#" class="button small">Small</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-12-small">
+                                        <ul class="actions stacked">
+                                            <li><a href="#" class="button primary fit">Default</a></li>
+                                            <li><a href="#" class="button fit">Default</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6 col-12-small">
+                                        <ul class="actions stacked">
+                                            <li><a href="#" class="button primary small fit">Small</a></li>
+                                            <li><a href="#" class="button small fit">Small</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                            <!-- Blockquote -->
+                                <h2>Blockquote</h2>
+                                <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis.</blockquote>
+
+                                <hr />
+
+                            <!-- Table -->
+                                <h2>Table</h2>
+
+                                <h3>Default</h3>
+                                <div class="table-wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Item 1</td>
+                                                <td>Ante turpis integer aliquet porttitor.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 2</td>
+                                                <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                                <td>19.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 3</td>
+                                                <td> Morbi faucibus arcu accumsan lorem.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 4</td>
+                                                <td>Vitae integer tempus condimentum.</td>
+                                                <td>19.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 5</td>
+                                                <td>Ante turpis integer aliquet porttitor.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <td>100.00</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <h3>Alternate</h3>
+                                <div class="table-wrapper">
+                                    <table class="alt">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Item 1</td>
+                                                <td>Ante turpis integer aliquet porttitor.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 2</td>
+                                                <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                                <td>19.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 3</td>
+                                                <td> Morbi faucibus arcu accumsan lorem.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 4</td>
+                                                <td>Vitae integer tempus condimentum.</td>
+                                                <td>19.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Item 5</td>
+                                                <td>Ante turpis integer aliquet porttitor.</td>
+                                                <td>29.99</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <td>100.00</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <hr />
+
+                            <!-- Buttons -->
+                                <h2>Buttons</h2>
+                                <ul class="actions">
+                                    <li><a href="#" class="button primary">Primary</a></li>
+                                    <li><a href="#" class="button">Default</a></li>
+                                </ul>
+                                <ul class="actions">
+                                    <li><a href="#" class="button primary large">Large</a></li>
+                                    <li><a href="#" class="button">Default</a></li>
+                                    <li><a href="#" class="button small">Small</a></li>
+                                </ul>
+                                <ul class="actions fit">
+                                    <li><a href="#" class="button primary fit">Fit</a></li>
+                                    <li><a href="#" class="button fit">Fit</a></li>
+                                </ul>
+                                <ul class="actions fit small">
+                                    <li><a href="#" class="button primary fit small">Fit + Small</a></li>
+                                    <li><a href="#" class="button fit small">Fit + Small</a></li>
+                                </ul>
+                                <ul class="actions">
+                                    <li><a href="#" class="button primary icon solid fa-search">Icon</a></li>
+                                    <li><a href="#" class="button icon solid fa-download">Icon</a></li>
+                                </ul>
+                                <ul class="actions">
+                                    <li><span class="button primary disabled">Primary</span></li>
+                                    <li><span class="button disabled">Default</span></li>
+                                </ul>
+
+                                <hr />
+
+                            <!-- Form -->
+                                <h2>Form</h2>
+
+                                <form method="post" action="#">
+                                    <div class="row gtr-uniform">
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                                        </div>
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-12">
+                                            <select name="demo-category" id="demo-category">
+                                                <option value="">- Category -</option>
+                                                <option value="1">Manufacturing</option>
+                                                <option value="1">Shipping</option>
+                                                <option value="1">Administration</option>
+                                                <option value="1">Human Resources</option>
+                                            </select>
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                                            <label for="demo-priority-low">Low</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="demo-priority-normal" name="demo-priority">
+                                            <label for="demo-priority-normal">Normal</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="demo-priority-high" name="demo-priority">
+                                            <label for="demo-priority-high">High</label>
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-6 col-12-small">
+                                            <input type="checkbox" id="demo-copy" name="demo-copy">
+                                            <label for="demo-copy">Email me a copy</label>
+                                        </div>
+                                        <div class="col-6 col-12-small">
+                                            <input type="checkbox" id="demo-human" name="demo-human" checked>
+                                            <label for="demo-human">I am a human</label>
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-12">
+                                            <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send Message" class="primary" /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <hr />
+
+                            <!-- Image -->
+                                <h2>Image</h2>
+
+                                <h3>Fit</h3>
+                                <span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+                                <div class="box alt">
+                                    <div class="row gtr-50 gtr-uniform">
+                                        <div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+                                        <!-- Break -->
+                                        <div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+                                        <!-- Break -->
+                                        <div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+                                        <div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+                                    </div>
+                                </div>
+
+                                <h3>Left &amp; Right</h3>
+                                <p><span class="image left"><img src="rpics\1.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+                                <p><span class="image right"><img src="rpics\2.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+
+                                <hr />
+
+                            <!-- Box -->
+                                <h2>Box</h2>
+                                <div class="box">
+                                    <p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus lorem ipsum dolor sit amet nullam. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis volutpat lorem ipsum dolor.</p>
+                                </div>
+
+                                <hr />
+
+                            <!-- Preformatted Code -->
+                                <h2>Preformatted</h2>
+                                <pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+print 'Iteration ' + i;
+deck.shuffle();
+i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';
+</code></pre>
+
+                        </section>
+
+                </div>
+
+            <!-- Footer -->
+                <footer id="footer">
+                    <section>
+                        <form method="post" action="#">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                                <div class="field">
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="message" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message" /></li>
+                            </ul>
+                        </form>
+                    </section>
+                    <section class="split contact">
+                        <section class="alt">
+                            <h3>Address</h3>
+                            <p>1234 Somewhere Road #87257<br />
+                            Nashville, TN 00000-0000</p>
+                        </section>
+                        <section>
+                            <h3>Phone</h3>
+                            <p><a href="#">(000) 000-0000</a></p>
+                        </section>
+                        <section>
+                            <h3>Email</h3>
+                            <p><a href="#">info@untitled.tld</a></p>
+                        </section>
+                        <section>
+                            <h3>Social</h3>
+                            <ul class="icons alt">
+                                <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            </ul>
+                        </section>
+                    </section>
+                </footer>
+
+            <!-- Copyright -->
+                <div id="copyright">
+                    <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                </div>
+
+        </div>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+</html>
