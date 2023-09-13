@@ -53,7 +53,7 @@
                         </header>
                             <ol>
                                 <li>Install and load the necessary packages for later cleaning and analysis. <br>
-                                    <span class=""><img src="rpics\1.jpg" alt="" /></span></li>
+                                    <span class=""><img src="rpics\1.jpg" alt="" style="width:80%;"/></span></li>
                                 <li>Find and set a working directory. <br>
                                     <span class=""><img src="rpics\2.jpg" alt="" /></span></li>
                                 <li>Upload CSV files from the proper directory. <br>
@@ -73,9 +73,9 @@
                                             <li>Now we will inspect the new table using all the following functions <br>
                                                 <span class=""><img src="rpics\10.jpg" alt="" style="width:100%;"/></span></li>
                                                 <li>We noticed some inconsistencies in the member_casual column so we summarize the column using table() function.<br>
-                                                    <span class=""><img src="rpics\11.jpg" alt="" /></span></li>
+                                                    <span class=""><img src="rpics\11.jpg" alt="" style="width:80%;"/></span></li>
                                                     <li>We see that there are multiple labels for members and casual, we will consolidate this into two for future consistency. <br>
-                                                        <span class=""><img src="rpics\12.jpg" alt="" /></span></li>
+                                                        <span class=""><img src="rpics\12.jpg" alt="" style="width:80%;"/></span></li>
                                                         <li>After checking everything was in order, we now want to add columns that list the date, month, day, year and day_of_week of each ride, having these numbers give us more ways to aggregate our data and it also allows us to have deeper insight of our riders.<br>
                                                             <span class=""><img src="rpics\13.jpg" alt="" style="width:100%;"/></span></li>
                                                             <li>After creating the new columns and checking that they’re all in the correct place and format, we now wants to calculate the ride length of each rider. We use the difftime() function to find the difference between ‘all_trips$ended_at’ and ‘all_trips$started_at’.<br>
@@ -89,7 +89,7 @@
                                                                             <li>Now that all our data are clean and proper, we can do some calculation on them using the following functions.<br>
                                                                                 <span class=""><img src="rpics\18.jpg" alt="" style="width:100%;"/></span> <br>
                                                                             Or we can condense all the above functions using summary().
-                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" /></span></li>
+                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" style="width:80%;"/></span></li>
                                                                                 <li>Now we want to compare the ride_length of casual riders and member riders, we sue the aggregate() function; we compare all_trips_v2$ride_length to all_trips_v2$member_casual adding FUN= to specify which summary statistic we would like to compare them with. <br>
                                                                                     <span class=""><img src="rpics\19.jpg" alt="" style="width:100%;"/></span></li>
                                                                                     <li>Now we compare casual riders and member riders using ‘ride_length’, ‘member_casual’, and ‘day_of_week’.<br>
