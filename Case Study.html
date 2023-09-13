@@ -27,9 +27,9 @@
 						<ul class="links">
 							<li><a href="index.html">About Me</a></li>
                             <li class="active"><a href="Case Study.html">Case Study</a></li>
-                            <li><a href="SQL Processes.html">SQL Processes</a></li>
-                            <li><a href="R Processes.html">R Processes</a></li>
-                            <li><a href="Excel Processes.html">Excel Processes</a></li>
+                            <li><a href="SQL Processes.html">SQL</a></li>
+                            <li><a href="R Processes.html">R</a></li>
+                            <li><a href="Excel Processes.html">Excel</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -75,86 +75,18 @@
                                     <li>Why would casual riders buy Cyclistic annual memberships? </li>
                                     <li>How can Cyclistic use digital media to influence casual riders to become members?</li>  
                                 </ol>
-                            
-                            <h2>Processes for PostgreSQL</h2>
-                           <header> <h2>Processes for R</h2>
-                            <p>Using R we cleaned, organized, formated, calculated, aggregated and visualized our data </p></header>
-                            <ol>
-                                <li>Install and load the necessary packages for later cleaning and analysis. <br>
-                                    <span class=""><img src="rpics\1.jpg" alt="" /></span></li>
-                                <li>Find and set a working directory. <br>
-                                    <span class=""><img src="rpics\2.jpg" alt="" /></span></li>
-                                <li>Upload CSV files from the proper directory. <br>
-                                    <span class=""><img src="rpics\3.jpg" alt="" /></span></li>
-                                <li>Cross checking columns names for matching data. <br>
-                                    <span class=""><img src="rpics\4.jpg" alt="" /></span></li>
-                                <li>The output shows outdated col names for 2019, we then rename them so that it will be consistent with 2020. <br>
-                                    <span class=""><img src="rpics\5.jpg" alt="" /></span></li>
-                                <li>Inspect data frames and look for incongruences. <br>
-                                    <span class=""><img src="rpics\6.jpg" alt="" /></span></li>
-                                <li>‘ride_id’ and ‘rideable_type’ are shown as ‘num’ so we will change that to character using the mutate() function.<br>
-                                    <span class=""><img src="rpics\7.jpg" alt="" /></span></li>
-                                    <li>Now we combine all four data frames into one and we will call it ‘all_trips’. <br>
-                                        <span class=""><img src="rpics\8.jpg" alt="" /></span></li>
-                                        <li>We are then going to remove a few outdated columns to make all data congruent with q1_2020<br>
-                                            <span class=""><img src="rpics\9.jpg" alt="" style="width:100%;"/></span></li>
-                                            <li>Now we will inspect the new table using all the following functions <br>
-                                                <span class=""><img src="rpics\10.jpg" alt="" style="width:100%;"/></span></li>
-                                                <li>We noticed some inconsistencies in the member_casual column so we summarize the column using table() function.<br>
-                                                    <span class=""><img src="rpics\11.jpg" alt="" /></span></li>
-                                                    <li>We see that there are multiple labels for members and casual, we will consolidate this into two for future consistency. <br>
-                                                        <span class=""><img src="rpics\12.jpg" alt="" /></span></li>
-                                                        <li>After checking everything was in order, we now want to add columns that list the date, month, day, year and day_of_week of each ride, having these numbers give us more ways to aggregate our data and it also allows us to have deeper insight of our riders.<br>
-                                                            <span class=""><img src="rpics\13.jpg" alt="" style="width:100%;"/></span></li>
-                                                            <li>After creating the new columns and checking that they’re all in the correct place and format, we now wants to calculate the ride length of each rider. We use the difftime() function to find the difference between ‘all_trips$ended_at’ and ‘all_trips$started_at’.<br>
-                                                                <span class=""><img src="rpics\14.jpg" alt="" /></span></li>
-                                                                <li>We inspect the structure of our data once more for posterity<br>
-                                                                    <span class=""><img src="rpics\15.jpg" alt="" /></span></li>
-                                                                    <li>We want to run calculation using the data in ‘ride_length’, to do so we need to convert ‘ride_length’  to numberic. We check if ‘ride_length’ is a factor first then change it.<br>
-                                                                        <span class=""><img src="rpics\16.jpg" alt="" /></span></li>
-                                                                        <li>We also want to remove some data entries that has errors, namely the data that has negative ride length. To do so we must check the data first, then proceed to remove them. Since we are removing data from the data frame, we want to make a copy of said data for organization sake and assign it to ‘all_trip_v2’<br>
-                                                                            <span class=""><img src="rpics\17.jpg" alt="" style="width:100%;"/></span></li>
-                                                                            <li>Now that all our data are clean and proper, we can do some calculation on them using the following functions.<br>
-                                                                                <span class=""><img src="rpics\18.jpg" alt="" style="width:100%;"/></span> <br>
-                                                                            Or we can condense all the above functions using summary().
-                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" /></span></li>
-                                                                                <li>Now we want to compare the ride_length of casual riders and member riders, we sue the aggregate() function; we compare all_trips_v2$ride_length to all_trips_v2$member_casual adding FUN= to specify which summary statistic we would like to compare them with. <br>
-                                                                                    <span class=""><img src="rpics\19.jpg" alt="" style="width:100%;"/></span></li>
-                                                                                    <li>Now we compare casual riders and member riders using ‘ride_length’, ‘member_casual’, and ‘day_of_week’.<br>
-                                                                                        <span class=""><img src="rpics\20.jpg" alt="" style="width:100%;"/></span></li>
-                                                                                        <li>The output shows us that ‘day_of_week’ is out of order, we want to fix this by reassigning ‘day_of_week’ using the ordered() function.<br>
-                                                                                            <span class=""><img src="rpics\21.jpg" alt="" style="width:100%;"/></span></li>
-                                                                                            <li>Now we run the aggregate() function again to see that the days has been ordered correctly. Next we want to analyze ridership data by type and weekday. We first create a ‘weekday’ column, then we group it by user type, we summarize the ‘number_of_riders’, we then create an ‘average_duration’ by averaging ‘ride_length’ and arrange them by ‘member_casual’ and ‘weekday’<br>
-                                                                                                <span class=""><img src="rpics\22.jpg" alt="" style="width:100%;"/></span></li>
-                                                                                                <li>Using ggplot we will then visualize our findings, at the same time answering the question “What is the differences between casual and member riders, based on the number of rides?”<br>
-                                                                                                    <span class=""><img src="rpics\23.jpg" alt="" /></span></li>
-                                                                                                    <li>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”<br>
-                                                                                                        <span class=""><img src="rpics\24.jpg" alt="" /></span>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”</li>
-                                                                                                        <li>Having finished our analytics, now we save our work. We put the data we want into a new data frame ‘counts’ using the aggregate function, then we export a CSV file to the directory what we want. <br>
-                                                                                                            <span class=""><img src="rpics\25.jpg" alt="" style="width:100%;"/></span></li>
-                                
-                               
-                                    
-
-                            </ol>
                             <hr>
 
+
+
+
+
+                            
+<!------------------------------ Text Reference -------------------------------------------------------------------------------->
                             <h3>Left &amp; Right</h3>
                                 <p><span class="image right"><img src="rpics\1.jpg" alt="" /></span>Install and load the necessary packages for later cleaning and analysis.</p>
                                 <p><span class="image right"><img src="rpics\2.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
-
-                                <hr />
-
-
-
-
-
-
-
-
-
-                            
-                            <!-- Text Reference -->
+                            <hr />
                                 <h2>Text</h2>
                                 <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
                                 This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
