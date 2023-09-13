@@ -27,9 +27,9 @@
 						<ul class="links">
 							<li><a href="index.html">About Me</a></li>
                             <li><a href="Case Study.html">Case Study</a></li>
-                            <li class="active"></liclass><a href="SQL Processes.html">SQL Processes</a></li>
-                            <li><a href="R Processes.html">R Processes</a></li>
-                            <li><a href="Excel Processes.html">Excel Processes</a></li>
+                            <li class="active"></liclass><a href="SQL Processes.html">SQL</a></li>
+                            <li><a href="R Processes.html">R</a></li>
+                            <li><a href="Excel Processes.html">Excel</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
@@ -41,41 +41,64 @@
                 <div id="main">
 
                     <!-- Post -->
-                        <section class="post">
-                            <header class="major">
-                                <h1>Cyclistic</h1>
-                                <h4>casestudy 1</h4>
-                                <hr>
-                            </header>
-                            <section class="post">
-                                <header class="major">
-                                    <h3>The Task</h3>
-                                </header>
-                            <p>Using Excel, SQL, R, and visuals to provide data insight for the marketing team to convert casual customers into annual members. </p>
+                    <section class="post">
+                        <header class="major">
+                            <h2>A step-by-step process for PostgreSQL</h2>
+                            <h3></h3>
+                            <h4>Using SQL we clean, organize, format, and analyze our data</h4>
                             <hr>
-                            <h2>Background</h2>
-                            <p>Cyclistic launched a successful bike-share offering in 2016. The bikes are convenience and easy to use. 
-                            The pricing plans include single-ride passes, full-day passes, and annual memberships. 
-                            Annual members are much more profitable than casual riders. 
-                            Moreno believes that maximizing the number of annual members will be key to future growth. 
-                            Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, 
-                            the marketing analyst team needs to better understand how annual members and casual riders differ, 
-                            why casual riders would buy a membership, and how digital media could affect their marketing tactics.</p>
+                        </header>
+                    </header>
+                    <h2>Processes for PostgreSQL</h2>
+                    </header>
+                        
+<ol>
+	<li>In order to process the data using SQL we need to first create our table. We then repeat this process for each monthly data<br>
+		<span class=""><img src="SQLpics/1.png" alt="" /></span></li>
+	<li>We then import our data using the COPY function <br>
+		<span class=""><img src="SQLpics/2.png" alt="" style="width:100%;"/></span></li>
+	<li>We noticed that in our table, the datatype for started_at and ended_at, are in varchar thus not displaying the date and time correctly, so we will change the datatype of those two columns <br>
+		<span class=""><img src="SQLpics/3.png" alt="" style="width:100%;"/></span></li>
+		<li>Using SELECT * we see that some table has two extra columns that contain all NULLS values so we drop the columns in each of those table <br>
+			<span class=""><img src="SQLpics/4.png" alt="" /></span></li>
+		<li>Now we combine all tables into one and call it ‘year_overview’ <br>
+			<span class=""><img src="SQLpics/5.png" alt="" style="width:100%;"/></span></li>
+			<li>6.	We need a new aggregation in order to get a deeper insight into our data, so we find the time each rider spent after taking their bike by finding the differences between ‘started_at’ and ‘ended_at’, then we saves our output into a new table called ‘rider_time_spent’<br>
+				<span class=""><img src="SQLpics/6.png" alt="" style="width:100%;"/></span></li>
+				<li>7.	We rename our column ‘ride_id’ into ‘rider_id’ so we can use the JOIN function properly later <br>
+					<span class=""><img src="SQLpics/7.png" alt="" /></span></li>
+					<li>8.	We then combine our data tables together, using the JOIN function and also insert it into a new table so we can view all our data at once <br>
+						<span class=""><img src="SQLpics/8.png" alt="" style="width:100%;"/></span></li>
+						<li>9.	We check our result <br>
+							<span class=""><img src="SQLpics/9.png" alt="" /></span></li>
+							<li>10.	We realized that there are many rider that has between negative to 20 seconds ride time, we check our results to see how many riders falls between these numbers <br>
+								<span class=""><img src="SQLpics/10.png" alt="" /></span></li>
+								<li>11.	We will filter those out of our data base since anything less than 20 seconds can be consider outliers. But before we delete any data, to be safe, we will make a copy of our current table for safe keeping incase we make any mistake <br>
+									<span class=""><img src="SQLpics/11.png" alt="" /></span></li>
+									<li>12.	Then we proceed to delete our data <br>
+										<span class=""><img src="SQLpics/12.png" alt="" /></span></li>
+										<li>13.	Now that all of our data is clean and proper, we can do some calculation on them. We then go to find the distinct values, maximum, minimum, and means of our casual and member riders and also put the results into a new table. <br>
+											<span class=""><img src="SQLpics/13.png" alt="" style="width:100%;"/></span></li>
+											<li>14.	After looking at out statistical summary we realized we need more ways to aggregate our data, so we find the days of the week that each rider used their bike.<br>
+												<span class=""><img src="SQLpics/14.png" alt="" /></span></li>
+												<li>15.	We then put this results in a new table and label the table ‘day_ridden’ and the column ‘day_of_week’<br>
+													<span class=""><img src="SQLpics/15.png" alt="" style="width:100%;"/></span></li>
+													<li>16.	As we made this into a new table we also need to rename the ‘ride_id’ to ‘rider_id’ so we can join our tables together. Otherwise if we have the same column name in two tables we won’t be able to join them together.<br>
+														<span class=""><img src="SQLpics/16.png" alt="" /></span></li>
+														<li>17.	Then we join our ‘day_ridden’ table into our ‘year_overview2’ to understand when each of our users decide to use their bikes and label this ‘year_overview3’<br>
+															<span class=""><img src="SQLpics/17.png" alt="" style="width:100%;"/></span></li>
+															<li>18.	After checking the results, we see that there are about 500,000 more rows than we anticipated, upon looking closer at the data we realized the JOIN query created duplicates in our table so we want to find the duplicates<br>
+																<span class=""><img src="SQLpics/18.png" alt="" /></span></li>
+																<li>19.	Having found our duplicates we now remove them<br>
+																	<span class=""><img src="SQLpics/19.png" alt="" /></span></li>
+																	<li>20.	Now we can find the most and least popular day people take their bikes out<br>
+																		<span class=""><img src="SQLpics/20.png" alt="" /></span></li>
+																		<li>21.	Now we can compare it to our riders, with this function we can see what days are popular and least popular for our casual and member riders.<br>
+																			<span class=""><img src="SQLpics/21.png" alt="" style="width:100%;"/></span></li>
+																			<li>22.	Lastly we calculate the average time spent on each day with our casual and member riders<br>
+																				<span class=""><img src="SQLpics/22.png" alt="" style="width:100%;"/></span></li>
+																				<li>23.	Having finished our analysis of our riders, we now export our data tables and input it into a visualization software like Tableau for easy presentation.<br>
+																					
+																																																						
 
-                            <h2>Preparation</h2>
-                            <p>We used Cyclistic’s historical trip data to analyze and identify trends. 
-                                All data are organized and located locally. All data has been reviewed for biases.
-                                 Data is licensed and was given proper access permissions.</p>
-                                 <header>
-                                    <h2>Ask</h2>
-                                    <p>Questions to guide the marketing analytic team:</p>
-                                </header>
-                                <ol>
-                                    <li>How do annual members and casual riders use Cyclistic bikes differently? </li>
-                                    <li>Why would casual riders buy Cyclistic annual memberships? </li>
-                                    <li>How can Cyclistic use digital media to influence casual riders to become members?</li>  
-                                </ol>     
-                            
-                            <h2>Processes for PostgreSQL</h2>
-
-                                </ol>
+</ol>
