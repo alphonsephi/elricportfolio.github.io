@@ -67,13 +67,13 @@
                                 <li>‘ride_id’ and ‘rideable_type’ are shown as ‘num’ so we will change that to character using the mutate() function.<br>
                                     <span class=""><img src="rpics\7.jpg" alt="" style="width:100%;"/></span></li>
                                     <li>Now we combine all four data frames into one and we will call it ‘all_trips’. <br>
-                                        <span class=""><img src="rpics\8.jpg" alt="" style="width:100%;"/></span></li>
+                                        <span class=""><img src="rpics\8.jpg" alt="" style="width:70%;"/></span></li>
                                         <li>We are then going to remove a few outdated columns to make all data congruent with q1_2020<br>
                                             <span class=""><img src="rpics\9.jpg" alt="" style="width:100%;"/></span></li>
                                             <li>Now we will inspect the new table using all the following functions <br>
                                                 <span class=""><img src="rpics\10.jpg" alt="" style="width:100%;"/></span></li>
                                                 <li>We noticed some inconsistencies in the member_casual column so we summarize the column using table() function.<br>
-                                                    <span class=""><img src="rpics\11.jpg" alt="" style="width:80%;"/></span></li>
+                                                    <span class=""><img src="rpics\11.jpg" alt="" style="width:70%;"/></span></li>
                                                     <li>We see that there are multiple labels for members and casual, we will consolidate this into two for future consistency. <br>
                                                         <span class=""><img src="rpics\12.jpg" alt="" style="width:80%;"/></span></li>
                                                         <li>After checking everything was in order, we now want to add columns that list the date, month, day, year and day_of_week of each ride, having these numbers give us more ways to aggregate our data and it also allows us to have deeper insight of our riders.<br>
@@ -89,7 +89,7 @@
                                                                             <li>Now that all our data are clean and proper, we can do some calculation on them using the following functions.<br>
                                                                                 <span class=""><img src="rpics\18.jpg" alt="" style="width:100%;"/></span> <br>
                                                                             Or we can condense all the above functions using summary().
-                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" style="width:80%;"/></span></li>
+                                                                            <span class=""><img src="rpics\18v2.jpg" alt="" style="width:60%;"/></span></li>
                                                                                 <li>Now we want to compare the ride_length of casual riders and member riders, we sue the aggregate() function; we compare all_trips_v2$ride_length to all_trips_v2$member_casual adding FUN= to specify which summary statistic we would like to compare them with. <br>
                                                                                     <span class=""><img src="rpics\19.jpg" alt="" style="width:100%;"/></span></li>
                                                                                     <li>Now we compare casual riders and member riders using ‘ride_length’, ‘member_casual’, and ‘day_of_week’.<br>
@@ -102,7 +102,8 @@
                                                                                                     <span class=""><img src="rpics\23.jpg" alt="" style="width:100%;"/></span></li>
                                                                                                     <li>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”<br>
                                                                                                         <span class=""><img src="rpics\24.jpg" alt="" style="width:100%;"/></span>Now we use ggplot to visualize the average duration of rides, this time we answer the question “What is the differences between casual and member riders, based on the duration of their rides?”</li>
-                                                                                                        <li>Having finished our analytics, now we save our work. We put the data we want into a new data frame ‘counts’ using the aggregate function, then we export a CSV file to the directory what we want. <br>
-                                                                                                            <span class=""><img src="rpics\25.jpg" alt="" style="width:100%;"/></span></li>
+                                                                                                        <li>Having finished our analytics, now we save our work. We put the data we want into a new data frame ‘counts’ using the aggregate function, then we export a CSV file to the directory that we want. <br>
+                                                                                                            <span class=""><img src="rpics\25.jpg" alt="" style="width:100%;"/></span>
+                                                                                                            <span class=""><img src="rpics\25v2.jpg" alt="" style="width: 70%;"/></span></li>
                             </ol>
                            
